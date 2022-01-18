@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, FlatList, StyleSheet, Text, View } from 'react-native';
 import ScreenBackground from '../common/ScreenBackground';
 import { userContext } from '../contexts/UserContext';
 import AddUsers from './AddUsers';
@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const defaultUser = {id:'admin',username:'admin',password:'admin'};
 const SettingsScreen = () => {
-    const {setUser,user,setAllUsers} = useContext(userContext);
+    const {setUser,user,setAllUsers,allUsers} = useContext(userContext);
     const [modalVisible, setModalVisible] = useState(false);
     let val = user ? false : true;
 
@@ -60,6 +60,13 @@ const SettingsScreen = () => {
                     </View>
                     <View style={{textAlign:'left',backgroundColor:'#a0522d'}}>
                         <Button title='Log out' onPress={()=>setUser('')} disabled={val} style={{textAlign:'left'}} color='#a0522d'/>    
+                    </View>
+                    <View>
+                        <FlatList
+                            data={allUsers}
+                            keyExtractor={item=>item.id}
+                            renderItem={({item})=><View><Text>{item.id} -- {item.username}</Text></View>}
+                        />
                     </View>
                     <AddUsers modalVisible={modalVisible} setModalVisible={setModalVisible} />
         </View>
