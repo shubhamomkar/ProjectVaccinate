@@ -12,8 +12,15 @@ const Tabs = createBottomTabNavigator();
 const TabsScreen = () => {
     const {user} = useContext(userContext);
     let val = user ? true : false;
+
+    const tabsConfig = {
+        tabBarActiveBackgroundColor:'brown',
+        tabBarActiveTintColor:'white',
+        tabBarHideOnKeyboard:true
+    }
+
     return (
-            <Tabs.Navigator>
+            <Tabs.Navigator screenOptions={tabsConfig} >
                 <Tabs.Screen name='Search' component={SearchScreen} options={{ headerShown: false }}/>
                 {val && <Tabs.Screen name='Members' component={MembersScreen} options={{ headerShown: false }}/>}
                {!val && <Tabs.Screen name='Login' component={LoginScreen} options={{ headerShown: false }}/>}

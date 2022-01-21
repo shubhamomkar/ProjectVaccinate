@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Keyboard, StyleSheet, Button, FlatList } from 'react-native';
+import { Text, View, Keyboard, StyleSheet, Button, FlatList, Alert } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import ScreenBackground from '../common/ScreenBackground';
 
@@ -19,13 +19,24 @@ const MembersScreen = () => {
                 </View>
                 <View style={{flexDirection:'row'}}>
                     <View style={{marginRight:2}}>
-                        <Button title='View' onPress={()=>console.log(item.id)} color='#6082B6'/>
+                        <Button title='View' onPress={()=>wipMessage()} color='#6082B6'/>
                     </View>
                     <View>
-                        <Button title='Share' onPress={()=>console.log(item.id)} color='#6082B6'/>
+                        <Button title='Share' onPress={()=>wipMessage()} color='#6082B6'/>
                     </View>
                 </View>
             </View>
+        )
+    }
+
+    const wipMessage = () => {
+        Alert.alert('This feature doesnt exist now , will be created later !','Please explore other features for now .',
+                    [
+                        {
+                            text:'Ok'
+                        }
+                    ],
+                    {cancelable:true}
         )
     }
 
@@ -40,10 +51,10 @@ const MembersScreen = () => {
                     </View>
                     <View style={styles.addMember}>
                         <View style={{justifyContent:'center'}}>
-                            <Text style={{fontSize:15,color:'brown'}}>Total Members : 0</Text>
+                            <Text style={{fontSize:15,color:'brown'}}>Total Members : {sampleMembers.length}</Text>
                         </View>
                         <View style={{borderWidth:5,borderRadius:10,borderColor:'#a0522d'}}>
-                            <Button title='Add member' onPress={()=>console.log('Add Member')} color='brown' disabled={sampleMembers.length>=4} />
+                            <Button title='Add member' onPress={()=>wipMessage()} color='brown' disabled={sampleMembers.length>=4} />
                         </View>
                     </View>
                     <View>

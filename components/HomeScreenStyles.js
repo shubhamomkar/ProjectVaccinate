@@ -13,7 +13,8 @@ export const styles = StyleSheet.create({
         padding: 10,
         marginLeft: 20,
         marginRight: 20,
-        marginTop: 20
+        marginTop: 20,
+        alignItems:'center'
     },
     headerText: {
         fontSize: 20,

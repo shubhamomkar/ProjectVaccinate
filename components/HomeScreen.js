@@ -47,10 +47,12 @@ const HomeScreen = ({navigation}) => {
                 <Text style={styles.headingText}>Project Vaccinate</Text>
             </View>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Doses given till now : <Text style={styles.headerCount}>{vaccinationInfo?.total ? vaccinationInfo.total.toLocaleString('en-US') : `---`}</Text></Text>
+                <Text style={styles.headerText}>Doses given till now </Text>
+                <Text style={styles.headerCount}>{vaccinationInfo?.total ? vaccinationInfo.total.toLocaleString('en-US') : `---`}</Text>
             </View>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Doses given today : <Text style={styles.headerCount}>{vaccinationInfo?.today ? vaccinationInfo.today.toLocaleString('en-US') : `---`}</Text></Text>
+                <Text style={styles.headerText}>Doses given today</Text>
+                <Text style={styles.headerCount}>{vaccinationInfo?.today ? vaccinationInfo.today.toLocaleString('en-US') : `---`}</Text>
             </View>
             <View style={styles.buttonBox}>
                 <View style={styles.buttonBox}>

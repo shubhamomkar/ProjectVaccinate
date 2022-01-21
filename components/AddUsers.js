@@ -109,8 +109,8 @@ const AddUsers = ({modalVisible,setModalVisible}) => {
                             </View>
                         </View>
                         <View style={[styles.formRow,{justifyContent:'space-around',marginTop:20}]}>
-                            <Button title='Add' onPress={handleAddUser} color='#6082B6' disabled={!(form.password && form.username)} />
                             <Button title='Close' onPress={()=>setModalVisible(false)} color='#6082B6' />
+                            <Button title='Add' onPress={handleAddUser} color='#6082B6' disabled={!(form.password && form.username)} />
                         </View>
                     </View>
                 </ScreenBackground>

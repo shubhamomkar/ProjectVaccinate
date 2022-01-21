@@ -105,8 +105,10 @@ const SearchScreen = () => {
                         {result.loading  ? 
                         <ActivityIndicator size='large' color='green' animating={result.loading} />
                         :
-                        <View>
-                            <Text>Search Results</Text>
+                        <View style={{marginBottom:100}}>
+                            <View>
+                                <Text style={{fontSize:15,padding:5}}>Search Results</Text>
+                            </View>
                         {result.resultData?.sessions &&
                             <FlatList
                                 data={result.resultData.sessions}
@@ -116,22 +118,6 @@ const SearchScreen = () => {
                         }
                         </View>}
                     </View>
-                    {/* <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                    <Modal
-                        animationType='slide'
-                        transparent={true}
-                        visible={modalVisible}
-                        onRequestClose={()=>{
-                            Alert.alert('Modalclosed');
-                            setModalVisible(!modalVisible);
-                        }}
-                        >
-                            <View style={{width:200,height:200,backgroundColor:'white'}}><Text>Hello</Text>
-                            <Button title='Close' onPress={()=>setModalVisible(false)}/>
-                            </View>
-                        </Modal>
-                        </View> */}
-
                     <View>
                         <Modal
                             animationType='fade'
